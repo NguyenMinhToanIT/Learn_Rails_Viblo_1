@@ -6,4 +6,13 @@ module SessionHelper
     def log_out
         session.delete :user_id
     end
+    #Get current_user
+    def current_user
+        @current_user ||= User.find_by id: session[:user_id]
+    end
+    
+    #check user has logged in before?
+    def logged_in?
+        current_user.present?
+    end
 end
