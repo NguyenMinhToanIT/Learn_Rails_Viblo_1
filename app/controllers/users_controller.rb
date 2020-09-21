@@ -13,8 +13,8 @@ class UsersController < ApplicationController
             flash[:success] = "Register success"
             redirect_to users_path
         else
-            flash[:success] = "Register failed"
-            render :new
+            flash[:danger] = "Register failed"
+            redirect_to new_user_path
         end
     end
 
